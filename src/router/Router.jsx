@@ -10,12 +10,14 @@ const routerTarot = createBrowserRouter([
         element: <Layout />,
         children: [
             {
-                index: true,
-                element: <Home />
-            },
-            {
-                path: "/carddetail/:id",
-                element: <CardDetail />
+                path: "",
+                element: <Home />,
+                children: [
+                    {
+                        path: "/carddetail/:id",
+                        element: <CardDetail />
+                    },
+                ]
             },
             {
                 path: "/tarotreading",

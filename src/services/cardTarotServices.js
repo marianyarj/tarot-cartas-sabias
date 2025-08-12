@@ -9,3 +9,12 @@ export const getAllCards = async () => {
         console.log(error + ">> error en Services");
     }
 }
+
+export const getCardById = async (id) => {
+    try {
+        const response = await axios.get(URL_API + id);
+        return response.data;
+    } catch (error) {
+        console.log(error + ">> error en Services");
+    }
+}
