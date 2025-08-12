@@ -27,7 +27,7 @@ function Home() {
         <>
             <ul>
                 {cardsTarot.map(card => (
-                    <li key={card.id} onClick={() => cardClick(card.id)}>{card.arcaneName}</li>
+                    <li key={card.id} onClick={() => cardClick(card.id)}>{card.arcaneName} {card.arcaneDescription}</li>
                 ))}
             </ul>
             <Outlet />

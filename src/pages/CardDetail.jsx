@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { getCardById } from '../services/cardTarotServices'
 import { useParams } from 'react-router-dom';
 
 function CardDetail() {
     const { id } = useParams()
     const [card, setCard] = useState(null);
+    const cardDetailRef = useRef();
     useEffect(() => {
         const fetchCard = async () => {
             try {
@@ -16,13 +17,21 @@ function CardDetail() {
         }
         fetchCard();
     }, [id])
+    useEffect(() => {
+        if (cardDetailRef.current) {
+            cardDetailRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [card])
     if (!card) {
         return <p>Carregando...</p>
     }
 
     return (
         <>
-            <h2>{card.arcaneName}</h2>
+            <div ref={cardDetailRef}>
+                <h2>{card.arcaneName}</h2>
+            </div>
+
         </>
     )
 }
