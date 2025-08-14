@@ -18,6 +18,7 @@ function Home() {
             }
         }
         fetchCards();
+
     }, []);
 
     const cardClick = (cardId) => {
