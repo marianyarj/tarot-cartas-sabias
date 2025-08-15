@@ -13,7 +13,7 @@ export default function CardGrid({ cards, onCardClick, showName }) {
                 >
                     <img src={cardBack} alt={card.arcaneName} />
                     {showName && (
-                        <p className="tracking-wide absolute bottom-0 left-0 w-full text-center text-xl text-mustard font-bold bg-midnight bg-opacity-50 py-4 rounded-b-lg">
+                        <p className="tracking-wide absolute bottom-0 left-0 w-full text-center text-xl text-mustard font-bold bg-midnight bg-opacity-50 py-4 rounded-b-lg border-b-2 border-mustard">
                             {card.arcaneName}
                         </p>
                     )}
