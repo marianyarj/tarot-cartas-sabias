@@ -34,7 +34,7 @@ function Home() {
                     <h2 > Solo tienes que hacer clic en una carta para conocer más detalles sobre ella.</h2>
                 </div>
             </section>
-            <CardGrid cards={cardsTarot} onCardClick={cardClick} />
+            <CardGrid cards={cardsTarot} onCardClick={cardClick} showName={true} />
 
             <Outlet />
         </>
