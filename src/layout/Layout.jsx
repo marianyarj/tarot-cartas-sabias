@@ -50,7 +50,7 @@ function Layout() {
     return (
         <>
             <Particles className="fixed top-0 left-0 w-full h-screen -z-10" options={options} />
-            <div className="relative z-10 w-full p-12 md:p-20 xl:pl-80 xl:pr-80">
+            <div className="relative z-10 w-full p-20 md:p-40 lg:pl-60 xl:pl-80 xl:pr-80">
                 <NavBar />
                 <Outlet />
                 <FooterBar />
