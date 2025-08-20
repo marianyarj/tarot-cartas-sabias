@@ -29,7 +29,7 @@ function CardDetail() {
 
     return (
         <>
-            <section ref={cardDetailRef} className='grid grid-auto-rows bg-midnight text-mustard mt-18 py-20 space-y-4 px-20 -mx-20 md:text-2xl md:-mx-40 lg:mx-60 xl:-mx-80 md:py-16 md:px-40 xl:px-80 xl:py-24'>
+            <section ref={cardDetailRef} className='grid grid-auto-rows bg-midnight text-mustard mt-18 py-14 space-y-4 px-20 -mx-20 md:text-2xl md:-mx-40 md:py-16 md:px-40 lg:mx-60 xl:-mx-80 xl:px-80 xl:pt-24 xl:pb-40'>
                 <h2 className='row-start-1 text-center text-3xl md:text-5xl [word-spacing:0.4em] col-span-full'>
                     {card.arcaneName.split(" ").map((word, i) => (
                         <span key={i}>
