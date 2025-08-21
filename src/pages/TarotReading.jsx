@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { getAllCards } from '../services/cardTarotServices'
 import CardDetailArcane from '../components/CardDetailArcane';
+import CardDetailGoddess from '../components/CardDetailGoddess';
 
 function TarotReading() {
     const [availableCards, setAvailableCards] = useState([]);
     const [cards, setCards] = useState([null, null, null]);
     const titleCard = ["pasado", "presente", "futuro"];
+    const [selectedGoddess, setSelectedGoddess] = useState([null, null, null]);
 
     const getAllCardsRandom = async () => {
         try {
@@ -53,12 +55,27 @@ function TarotReading() {
                             {card ? (
                                 <div className='p-18 bg-midnight flex flex-col justify-center'>
                                     <CardDetailArcane cardArcane={card} />
+                                    <div className='mt-8 md:mt-12 xl:mt-16 text-center'>
+                                        <button
+                                            onClick={() => {
+                                                const newSelected = [...selectedGoddess];
+                                                newSelected[idx] = cards[idx];
+                                                setSelectedGoddess(newSelected);
+                                            }}
+                                            className='bg-mustard text-midnight hover:bg-midnight hover:text-mustard font-bold border-2 border-solid border-mustard cursor-pointer py-3 px-6 rounded-lg mt-8'
+                                        >
+                                            Conocer la Diosa
+                                        </button>
+                                        {selectedGoddess[idx] && <CardDetailGoddess cardGoddess={selectedGoddess[idx]} />}
+                                    </div>
                                 </div>
                             ) : (
                                 <p className='bg-midnight text-mustard text-center font-bold py-4 cursor-pointer' onClick={() => handleClick(idx)}>Haz clic para conocer tu {titleCard[idx]}.</p>
                             )}
                         </div>
+
                     ))}
+
                 </div>
             </section>
         </>
