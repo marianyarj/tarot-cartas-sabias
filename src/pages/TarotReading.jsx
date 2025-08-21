@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { getAllCards } from '../services/cardTarotServices'
 import CardDetailArcane from '../components/CardDetailArcane';
 import CardDetailGoddess from '../components/CardDetailGoddess';
@@ -8,6 +8,8 @@ function TarotReading() {
     const [cards, setCards] = useState([null, null, null]);
     const titleCard = ["pasado", "presente", "futuro"];
     const [selectedGoddess, setSelectedGoddess] = useState([null, null, null]);
+    const [fixedButton, setFixedButton] = useState(false);
+    const titleRef = useRef(null);
 
     const getAllCardsRandom = async () => {
         try {
@@ -43,11 +45,33 @@ function TarotReading() {
         setCards(newCards);
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (titleRef.current) {
+                const titleBottom = titleRef.current.getBoundingClientRect().bottom + window.scrollY;
+                setFixedButton(window.scrollY > titleBottom);
+            }
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
         <>
             <section className='w-full mt-18 text-mustard md:text-2xl'>
-                <h3 className=' bg-midnight  py-20 space-y-4 px-20 -mx-20 md:text-2xl md:-mx-20 xl:-mx-80 md:py-16 md:px-20 xl:px-80 xl:py-24'>Ven y explora tu <span className='font-semibold underline'>pasado</span>, comprende tu <span className='font-semibold underline'>presente</span> y descubre tu <span className='font-semibold underline'>futuro</span>.</h3>
+                <h3 ref={titleRef} className=' bg-midnight  py-20 space-y-4 px-20 -mx-20 md:text-2xl md:-mx-20 xl:-mx-80 md:py-16 md:px-20 xl:px-80 xl:py-24'>Ven y explora tu <span className='font-semibold underline'>pasado</span>, comprende tu <span className='font-semibold underline'>presente</span> y descubre tu <span className='font-semibold underline'>futuro</span>.</h3>
 
+                <div className={`mt-18 mb-12 flex justify-end ${fixedButton ? 'fixed top-4 right-0 z-50 pr-20 md:pr-40 lg:pr-60 xl:pr-80' : ''}`}>
+                    <button
+                        onClick={() => {
+                            setCards([null, null, null]);
+                            setSelectedGoddess([null, null, null]);
+                        }}
+                        className='bg-midnight text-mustard hover:bg-mustard hover:text-midnight font-bold border-2 border-solid border-mustard cursor-pointer py-3 px-6 rounded-lg'
+                    >
+                        Nueva lectura
+                    </button>
+                </div>
                 <div>
                     {cards.map((card, idx) => (
                         <div key={idx} className="rounded-lg border-4 border-solid border-mustard  my-18" >
