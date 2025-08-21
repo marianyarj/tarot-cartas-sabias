@@ -5,7 +5,7 @@ const NavBar = () => {
     const pageLocation = useLocation();
     return (
         <>
-            <nav className=' items-center  box-border w-full flex flex-col md:items-start md:place-items-start md:grid md:grid-cols-6 md:text-2xl xl:grid-cols-12'>
+            <nav className='mt-18 items-center  box-border w-full flex flex-col md:items-start md:place-items-start md:grid md:grid-cols-6 md:text-2xl xl:grid-cols-12'>
                 <h1 className='drop-shadow text-left text-4xl font-lato text-mustard md:text-6xl md:col-start-1 md:col-end-3 md:row-start-1'>
                     <span className='font-lavishly text-7xl md:text-9xl drop-shadow-lg'>C</span>artas
                 </h1>
