@@ -12,7 +12,6 @@ function Home() {
 
             try {
                 const allCardsData = await getAllCards();
-                console.log(allCardsData);
                 setCardsTarot(allCardsData);
             } catch (error) {
                 console.log(error + " >> error al traer en home");

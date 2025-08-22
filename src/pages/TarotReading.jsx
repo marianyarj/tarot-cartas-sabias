@@ -14,8 +14,8 @@ function TarotReading() {
     const getAllCardsRandom = async () => {
         try {
             const response = await getAllCards();
-            console.log(response);
-            console.log(typeof (response));
+            //console.log(response);
+            //console.log(typeof (response));
             const cardsRandom = response.slice();
             for (let i = 0; i < cardsRandom.length; i++) {
                 const j = Math.floor(Math.random() * cardsRandom.length);
@@ -38,7 +38,7 @@ function TarotReading() {
 
     const handleClick = (idx) => {
         const remainingCards = availableCards.filter(c => !cards.includes(c));
-        console.log("remainingCards:", remainingCards);
+        //console.log("remainingCards:", remainingCards);
         const randomCard = remainingCards[Math.floor(Math.random() * remainingCards.length)];
         const newCards = [...cards];
         newCards[idx] = randomCard;
