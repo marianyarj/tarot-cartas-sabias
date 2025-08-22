@@ -81,16 +81,18 @@ function TarotReading() {
 
                                     <CardDetailArcane cardArcane={card} />
                                     <div className='mt-8 md:mt-12 xl:mt-16 text-center'>
-                                        <button
-                                            onClick={() => {
-                                                const newSelected = [...selectedGoddess];
-                                                newSelected[idx] = cards[idx];
-                                                setSelectedGoddess(newSelected);
-                                            }}
-                                            className='bg-mustard text-midnight hover:bg-midnight hover:text-mustard font-bold border-2 border-solid border-mustard cursor-pointer py-3 px-6 rounded-lg mt-8'
-                                        >
-                                            Conocer la Diosa
-                                        </button>
+                                        {!selectedGoddess[idx] && (
+                                            <button
+                                                onClick={() => {
+                                                    const newSelected = [...selectedGoddess];
+                                                    newSelected[idx] = cards[idx];
+                                                    setSelectedGoddess(newSelected);
+                                                }}
+                                                className='bg-mustard text-midnight hover:bg-midnight hover:text-mustard font-bold border-2 border-solid border-mustard cursor-pointer py-3 px-6 rounded-lg mt-8'
+                                            >
+                                                Conocer la Diosa
+                                            </button>
+                                        )}
                                         <div className='mt-18'>
                                             {selectedGoddess[idx] && <CardDetailGoddess cardGoddess={selectedGoddess[idx]} />}
                                         </div>
