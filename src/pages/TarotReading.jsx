@@ -30,7 +30,7 @@ function TarotReading() {
     useEffect(() => {
         const fetchCards = async () => {
             const allCardsRandom = await getAllCardsRandom();
-            console.log("allCardsRandom:", allCardsRandom);
+            //console.log("allCardsRandom:", allCardsRandom);
             setAvailableCards(allCardsRandom);
         };
         fetchCards();
