@@ -44,3 +44,6 @@ Navegación entre diferentes secciones usando React Router
 ## Licencia
 
 Este proyecto está bajo la licencia MIT.
+
+## Briefing 
+Este proyecto se basa en el briefing original disponible en [stem-tarot](https://github.com/CeliaMi/stem-tarot/blob/main/README.md).
