@@ -29,17 +29,19 @@ function CardDetail() {
     }
     return (
         <>
-            <section ref={cardDetailRef} className='grid grid-auto-rows bg-midnight text-mustard mt-18 py-14 space-y-4 px-20 -mx-20 md:text-2xl md:-mx-40 md:py-16 md:px-40 lg:mx-60 xl:-mx-80 xl:px-80 xl:pt-24 xl:pb-40'>
+            <section ref={cardDetailRef} className='grid grid-auto-rows bg-midnight text-mustard mt-18 text-xl md:text-2xl p-20 xl:px-40 2xl:px-80'>
 
                 <CardDetailArcane cardArcane={card} />
-                <CardDetailGoddness cardGoddess={card} />
+                <div className='mt-12'>
+                    <CardDetailGoddness cardGoddess={card} />
+                </div>
                 <div className='mt-8 md:mt-12 xl:mt-16 text-center'>
                     <button
                         onClick={() => {
                             const allCards = document.getElementById("allCards");
                             if (allCards) allCards.scrollIntoView({ behavior: "smooth" });
                         }}
-                        className='bg-mustard text-midnight hover:bg-midnight hover:text-mustard font-bold border-2 border-solid border-mustard cursor-pointer py-3 px-6 rounded-lg'
+                        className='bg-mustard text-midnight hover:bg-midnight hover:text-mustard font-bold border-2 border-solid border-mustard cursor-pointer py-3 px-6 rounded-lg mt-18'
                     >
                         Conocer otra Diosa
                     </button>
