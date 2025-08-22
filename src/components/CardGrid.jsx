@@ -4,7 +4,7 @@ import cardBack from '../assets/cardback.svg'
 export default function CardGrid({ cards, onCardClick, showName }) {
 
     return (
-        <ul className="w-full mt-18 mb-18 grid justify-items-center md:grid-cols-2 md:gap-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+        <ul className="w-full mt-18 mb-18 grid justify-items-center gap-2 p-16 sm:p-20 sm:grid-cols-2 md:px-32 md:grid-cols-3 lg:px-48 xl:px-80 xl:grid-cols-4 2xl:px-120 2xl:grid-cols-5">
             {cards.map((card) => (
                 <li
                     key={card.id}
