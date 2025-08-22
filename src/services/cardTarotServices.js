@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL_API = "https://6872278c76a5723aacd3cbb3.mockapi.io/api/v1/tarot/";
+const URL_API = import.meta.env.VITE_URL_API;
 
 export const getAllCards = async () => {
     try {
