@@ -44,14 +44,6 @@ export default function CardGrid({ cards, onCardClick, showName }) {
                     </li>
                 ))}
             </ul>
-            <div className="flex justify-center gap-4 mt-4">
-                <button disabled={page === 0} onClick={() => setPage(page - 1)} className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50">
-                    Previous
-                </button>
-                <button disabled={page === totalPages - 1} onClick={() => setPage(page + 1)} className="px-4 py-2 bg-gray-700 text-white rounded disabled:opacity-50">
-                    Next
-                </button>
-            </div>
         </>
     )
 }
